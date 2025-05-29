@@ -4,19 +4,24 @@ const multer = require("multer");
 const path = require("path");
 const cors = require("cors");
 const session = require("express-session");
-require("dotenv").config();
+require('dotenv').config();
+mongoose.connect(process.env.MONGODB_URI, {
+  useNewUrlParser: true,
+  useUnifiedTopology: true
+});
+
 const app = express();
 const PORT = 3000;
 
 // Connexion MongoDB
-mongoose.connect("mongodb://127.0.0.1:27017/coursdomicile", {
+mongoose.connect('mongodb+srv://digitalproservice15:9xKDEB2EJ7UWKg2K@coursdomicile.s7szanw.mongodb.net/coursdomicile', {
   useNewUrlParser: true,
-  useUnifiedTopology: true,
+  useUnifiedTopology: true
 });
 const db = mongoose.connection;
 db.on("error", console.error.bind(console, "Erreur MongoDB :"));
 db.once("open", () => {
-  console.log("✅ Connecté à MongoDB");
+  console.log("✅ Connecté à MongoDB Atlas");
 });
 
 
