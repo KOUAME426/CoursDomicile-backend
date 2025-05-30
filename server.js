@@ -59,6 +59,14 @@ const EnseignantSchema = new mongoose.Schema({
 });
 const Enseignant = mongoose.model("Enseignant", EnseignantSchema);
 
+const fs = require('fs');
+
+const cvDir = path.join(__dirname, 'uploads/cv');
+const photosDir = path.join(__dirname, 'uploads/photos');
+
+if (!fs.existsSync(cvDir)) fs.mkdirSync(cvDir, { recursive: true });
+if (!fs.existsSync(photosDir)) fs.mkdirSync(photosDir, { recursive: true });
+
 // Multer
 const storage = multer.diskStorage({
   destination: function (req, file, cb) {
