@@ -13,9 +13,11 @@ Thumbs.db
 # Environment files
 .env
 
-# Uploads (éviter de versionner les fichiers utilisateurs)
-uploads/cv/
-uploads/photos/
+# Ignorer les fichiers uploadés, mais garder les dossiers vides avec .gitkeep
+uploads/*
+!uploads/cv/.gitkeep
+!uploads/photos/.gitkeep
+
 
 # VS Code settings (si tu utilises VS Code)
 .vscode/
