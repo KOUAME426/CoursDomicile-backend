@@ -14,7 +14,8 @@ const app = express();
 const PORT = 3000;
 
 // Connexion MongoDB
-mongoose.connect('mongodb+srv://digitalproservice15:9xKDEB2EJ7UWKg2K@coursdomicile.s7szanw.mongodb.net/coursdomicile', {
+console.log('Connexion MongoDB à :', process.env.MONGODB_URI);
+mongoose.connect('mongodb+srv://digitalproservice15:KOUAME2025@coursdomicile.s7szanw.mongodb.net/MonSite?retryWrites=true&w=majority', {
   useNewUrlParser: true,
   useUnifiedTopology: true
 });
