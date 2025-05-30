@@ -368,9 +368,7 @@
 
 </head>
 <body>
-    <!-- Loader HTML -->
-<div id="loader-wrapper">
-  <div id="loader"></div>
+    
 </div>
 
     <!-- Navigation -->
@@ -1126,15 +1124,7 @@ section {
 });
 
 </script>
-<script>
-  window.addEventListener("load", function () {
-    const loaderWrapper = document.getElementById("loader-wrapper");
-    if (loaderWrapper) {
-      loaderWrapper.style.opacity = 0;
-      setTimeout(() => loaderWrapper.style.display = "none", 500);
-    }
-  });
-</script>
+
 <script>
   const toggleBtn = document.getElementById('toggle-dark-mode');
   const body = document.body;
