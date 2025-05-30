@@ -1150,6 +1150,10 @@ section {
     localStorage.setItem('dark-mode', isDarkMode);
   });
 </script>
+.catch(error => {
+  console.error(error);
+  document.getElementById('loader').style.display = 'none';
+});
 
 </body>
 </html>
