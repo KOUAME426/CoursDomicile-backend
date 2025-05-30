@@ -63,9 +63,9 @@ document.getElementById('inscriptionForm').addEventListener('submit', async func
     } else {
       alert('❌ Une erreur s\'est produite lors de l\'inscription.');
     }
-  } catch (error) {
-    console.error('Erreur réseau :', error);
-    alert('❌ Une erreur s\'est produite lors de l\'envoi du formulaire.');
-  }
+  } .catch(error => {
+  console.error(error);
+  document.getElementById('loader').style.display = 'none';
 });
+
 
