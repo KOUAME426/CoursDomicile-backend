@@ -92,8 +92,8 @@ app.post('/inscription', upload.fields([{ name: 'cv' }, { name: 'photo' }]), asy
 
   try {
     // 🔁 Remplacement des backslashes \ par des slashes /
-    const cvPath = req.files['cv'][0].path.replace(/\\/g, '/');
-    const photoPath = req.files['photo'][0].path.replace(/\\/g, '/');
+    const cvPath = `/uploads/cv/${req.files['cv'][0].filename}`;
+    const photoPath = `/uploads/photos/${req.files['photo'][0].filename}`;
 
     const enseignant = new Enseignant({
       fullname,
@@ -286,12 +286,13 @@ app.post('/api/modifier-enseignant', upload.fields([
     };
 
     if (req.files['photo']) {
-      updateData.photo = req.files['photo'][0].path;
-    }
+  updateData.photo = `/uploads/photos/${req.files['photo'][0].filename}`;
+}
 
-    if (req.files['cv']) {
-      updateData.cv = req.files['cv'][0].path;
-    }
+if (req.files['cv']) {
+  updateData.cv = `/uploads/cv/${req.files['cv'][0].filename}`;
+}
+
 
     await Enseignant.findByIdAndUpdate(req.session.userId, updateData);
 
