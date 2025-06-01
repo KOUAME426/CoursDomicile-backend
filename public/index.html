@@ -363,6 +363,62 @@
     }
 }
 
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #2c3e50;
+  padding: 10px 20px;
+}
+
+.navbar .logo {
+  color: white;
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.navbar .nav-links {
+  display: flex;
+  list-style: none;
+  gap: 15px;
+}
+
+.navbar .nav-links li a {
+  color: white;
+  text-decoration: none;
+}
+
+.menu-toggle {
+  display: none;
+  font-size: 28px;
+  color: white;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+/* Responsive */
+@media screen and (max-width: 768px) {
+  .navbar .nav-links {
+    display: none;
+    flex-direction: column;
+    background-color: #2c3e50;
+    position: absolute;
+    top: 60px;
+    right: 20px;
+    width: 200px;
+    border-radius: 5px;
+  }
+
+  .navbar .nav-links.show {
+    display: flex;
+  }
+
+  .menu-toggle {
+    display: block;
+  }
+}
+
     </style>
     <link rel="stylesheet" href="css/responsive.css">
 
@@ -1136,6 +1192,14 @@ section {
     const isDarkMode = body.classList.contains('dark-mode');
     localStorage.setItem('dark-mode', isDarkMode);
   });
+
+  const menuToggle = document.getElementById('menu-toggle');
+  const navLinks = document.getElementById('nav-links');
+
+  menuToggle.addEventListener('click', () => {
+    navLinks.classList.toggle('show');
+  });
+
 </script>
 
 </body>
